@@ -1,0 +1,481 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Melissa, photographe professionnelle basée sur Lyon</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" type="image/png" href="./images/logo.png">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo" style="background: url('./images/logo1.png') no-repeat center/70%"></div>
+						<div class="content">
+							<div class="inner">
+								<h1>Melissa Photographe</h1>
+								<p>Photographe à Lyon<br />
+								Portraits, familles, réseaux sociaux, naissance, mariage en France</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Qui suis-je?</a></li>
+								<li><a href="#work">Photos</a></li>
+								<li><a href="#about">Tarifs</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<article id="intro">
+								<h2 class="major">Qui suis-je?</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p>Vous en avez assez des selfies ou des photos peu réussies, je vous comprends parfaitement !<br>On dit souvent que la première impression c’est la bonne, que ce soit pour un employeur, un CV ou pour un site de rencontres. Je vous propose de poster des photos sur les réseaux sociaux, des photos qui vous caractérisent, en mettant en avant vos atouts. J’aimerais vous aider à vous sublimer grâce aux compétences que j’ai acquises tout au long de mon parcours professionnel.<br>La dimension humaine me paraît essentielle. Je souhaite accompagner mes clients dans la réalisation de leurs projets, apprendre pour certains à s’aimer. Je serai à l’écoute de vos envies.<br>J’attache beaucoup d’importance à ce que ma prestation se passe en douceur car je sais combien il est difficile de se laisser photographier. En effet, étant jeune j’étais régulièrement de l’autre côté de l’objectif pour certaines marques de prêt à porter. Cela m’a permis de pouvoir identifier les besoins et les attentes des femmes en photographie.</p>
+								<h2>Parcours professionnel:</h2>
+								<p>10 années sur un poste de direction dans le secteur du luxe m’ont permis de développer une solide capacité d’analyse, une rigueur exemplaire.<br>J’aime le luxe, j’aime sublimer un corps, un visage. J’adore la découverte de soi, de l’autre. Etant petite, je maquillais et coiffais toutes les filles de ma famille !</p>
+								<h2>Globe-trotter:</h2>
+								<p>Durant quelques années j’ai beaucoup voyagé : pays asiatiques, Amérique, pays frontaliers…J’ai vécu une année à Londres, deux années dans le Sud de la France également.<br>Puis est arrivé la trentaine, mon envie de devenir maman. J’ai un magnifique petit garçon de 4 ans, Livio, ma douceur, mon amour.<br>Tous ces voyages, m’ont permis de beaucoup m’ouvrir, de développer une grande patience ainsi qu'une écoute active..</p>
+							</article>
+
+						<!-- Work -->
+							<style type="text/css">
+								.categories {
+									width: 30%;
+									cursor: pointer;
+									text-align: center;
+									display: inline-block;
+								}
+
+								.categories-bg {
+									width: 100%;
+									background: url('./images/bg.jpg') no-repeat center/cover;
+								}
+
+								.portraits-pic {
+									margin: 1%;
+									width: 30%;
+									cursor: pointer;
+									display: inline-block;
+									background: url('./images/bg.jpg') no-repeat center/cover;
+								}
+
+								#zoom {
+									top: 0;
+									left: 0;
+									z-index: 3;
+									width: 100%;
+									height: 100%;
+									display: none; 
+									position: fixed;
+									align-items: center;
+									justify-content: center;
+									backdrop-filter: blur(2px);
+									background-color: rgba(0,0,0,.5);
+								}
+
+								.categories p {margin: 0}
+
+								@media screen and (orientation: portrait) {
+									.categories{width: 90%}
+									.categories {margin-bottom: 25px}
+									.categories:nth-child(2) {margin: 0 2% 25px 2% !important}
+								}
+							</style>
+
+							<article id="work" style="width: 100rem">
+								<h2 class="major">Photos</h2>
+								<div style="width: 100%; text-align: center;">
+									<div class="categories">
+										<div class="categories-bg"></div><br>
+										<p>Portraits</p>
+									</div>
+									<div class="categories" style="margin: 0 2%">
+										<div class="categories-bg"></div><br>
+										<p>Portraits</p>
+									</div>
+									<div class="categories">
+										<div class="categories-bg"></div><br>
+										<p>Portraits</p>
+									</div>
+								</div>
+								<div id="portraits" style="width: 100%; text-align: center; display: none;">
+									<span id="return" style="position: absolute; top: 10px; left: 20px; cursor: pointer; font-family: helvetica; font-size: 25px;">&lt;</span>
+									<div class="portraits-pic"></div>
+									<div class="portraits-pic"></div>
+									<div class="portraits-pic"></div>
+									<div class="portraits-pic"></div>
+									<div class="portraits-pic"></div>
+								</div>
+							</article>
+
+							<script type="text/javascript">
+								let portraitsActive;
+								for(x=0;x<document.getElementsByClassName('categories-bg').length;x++) {
+									document.getElementsByClassName('categories-bg')[x].style.height = document.getElementsByClassName('categories-bg')[x].clientWidth/1.75 + 'px';
+								}
+								if(window.innerWidth > window.innerHeight) {
+									for(x=0;x<document.getElementsByClassName('portraits-pic').length;x++) {
+										let width = document.getElementById('work').clientWidth/3.5;
+										document.getElementsByClassName('portraits-pic')[x].style.width = width + 'px';
+										document.getElementsByClassName('portraits-pic')[x].style.height = width/1.75 + 'px';
+									}
+								}
+								else {
+									for(x=0;x<document.getElementsByClassName('portraits-pic').length;x++) {
+										let width = document.getElementById('work').clientWidth/(10/8.2);
+										document.getElementsByClassName('portraits-pic')[x].style.width = width + 'px';
+										document.getElementsByClassName('portraits-pic')[x].style.height = width/1.75 + 'px';
+									}
+								}
+								document.getElementsByClassName('categories')[0].addEventListener('click', function(){
+									document.getElementById('work').getElementsByClassName('major')[0].innerHTML = "Portraits";
+									document.getElementById('work').getElementsByTagName('div')[0].style.display = 'none';
+									document.getElementById('portraits').style.display = 'block';
+								})
+								document.getElementsByClassName('portraits-pic')[0].addEventListener('click', function(){
+									document.getElementById('zoom').style.display = 'flex';
+									document.body.style.overflow = 'hidden';
+								})
+								document.getElementById('return').addEventListener('click', function(){
+									document.getElementById('work').getElementsByClassName('major')[0].innerHTML = "Photos";
+									document.getElementById('work').getElementsByTagName('div')[0].style.display = 'block';
+									document.getElementById('portraits').style.display = 'none';
+								})
+							</script>
+
+						<!-- About -->
+							<article id="about" style="text-align:center">
+								<h2 class="major">Tarifs</h2><br>
+								<h3>Une séance photo : OUI mais pourquoi?</h3>
+								<p>Prendre du temps pour soi et rien que pour soi.<br>
+								Etre en face d'une personne qui va vous écouter.<br>
+								Etre en face d'une personne qui vous mettra en avant,<br>
+								vous sublimera et vous révelera.</p><br><br>
+								<h1>TARIFS 2020</h1><br><br>
+								<div style="border: 1px solid #cd7f32; color: #cd7f32"><br>
+									<h2 style="color: #cd7f32">Formule BRONZE</h2>
+									<p>1h30<br>15 photos retouchées<br>par mail/à domicile<br><br>190&euro;</p>
+									<h2 style="color: #cd7f32">PROMOTION PRINTEMPS</h2>
+									<p>49&euro; ( au lieu de 69&euro; )<br>5 PHOTOS NUMERIQUES HD<br>+ CLEF USB OFFERTE</p>
+								</div><br>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="#" style="display: none">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<div id="zoom"><img src="./images/bg.jpg" style="max-width: 90%; max-height: 90%;"/><p id="left-pic" style="position:absolute; top: 50%; right: 25px; color: white; font-size: 50px; font-family: Helvetica; cursor: pointer;">&#62;</p><p id="close" style="position:absolute; top: 25px; right: 25px; color: white; font-size: 25px; font-family: Helvetica; cursor: pointer; line-height: 0;">x</p></div>
+			<script type="text/javascript">
+				document.getElementById('zoom').addEventListener('click', function(e){
+					e.stopPropagation();
+				})
+				document.getElementById('close').addEventListener('click', function(){
+					document.getElementById('zoom').style.display = 'none';
+					document.body.style.overflowY = 'scroll';
+				})
+			</script>
+	</body>
+</html>
